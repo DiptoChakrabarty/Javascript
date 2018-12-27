@@ -1,19 +1,74 @@
-var age=prompt("Give your age");
-if(age<0){
-	console.log("Error");
-	alert("error");
+function max(k)
+{
+	var max=0;
+	k.forEach(function(p){
+		if(p>max){
+			max=p;
+		}
+	})
+	console.log(max);
 }
-else if(age==21){
-	console.log("happy birthday");
+function reverse(k)
+{
+	p=k.length;
+	
+	for (var i=p-1;i>=0;i--)
+	{
+		
+		console.log(k[i]);
+	}
 
 }
-else if(age%2!==0){
-	console.log("odd no");
+function add(k)
+{
+	var t=0;
+	k.forEach(function(p)
+	{
+			t=t+p;
+	})
+	console.log( t);
+}
+function uniform(k)
+{
+	p=k.length;
+	t=k[0];
+	var c=0;
+	for (var i=0;i<p;i++)
+	{
+		if(k[i]!=t)
+		{
+			c=c+1
+		}
+
+	}
+	if(c==0){
+		console.log("uniform");
+	}
+	else{
+		console.log("not uniform");
+	}
+	
+
+
 
 }
-else if((Math.sqrt(age))%1==0){
-	console.log("perfect square")
+var n=prompt("enter no of elements");
+var l=[]
+var s=0;
+for(var i=0;i<n;i++){
+	var t=prompt("give element "+(i+1));
+	l.push(t);
+	
+
 }
-else{
-	console.log("none")
-}
+p=l.length;
+	for (var i=0;i<p;i++)
+	{
+		s=s+l[i];
+		console.log(l[i]);
+	}
+	console.log(s);
+reverse(l);
+uniform(l);
+max(l);
+add(l);
