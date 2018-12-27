@@ -1,0 +1,23 @@
+var n=prompt("Give your choice ");
+var l=[]
+while(n!=4){
+	
+if(n==1){
+	var t=prompt("Enter your element");
+	l.push(t)
+}
+else if(n==2){
+	l.forEach(function(p,i)
+	{
+		console.log(i+": "+p);
+	})
+	//console.log(l);
+}
+else if(n==3){
+	var k=prompt("Give index to delete");
+	l.splice(k,1);
+
+}
+var n=prompt("Give your choice ");
+
+}
