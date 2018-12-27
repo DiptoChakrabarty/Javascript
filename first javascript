@@ -1,23 +1,15 @@
-var n=prompt("Give your choice ");
-var l=[]
-while(n!=4){
-	
-if(n==1){
-	var t=prompt("Enter your element");
-	l.push(t)
+console.log("even numbers")
+var count=10
+while(count<=40){
+	console.log(count);
+	count=count+2
 }
-else if(n==2){
-	l.forEach(function(p,i)
-	{
-		console.log(i+": "+p);
-	})
-	//console.log(l);
-}
-else if(n==3){
-	var k=prompt("Give index to delete");
-	l.splice(k,1);
-
-}
-var n=prompt("Give your choice ");
+console.log("nos divisible by 3 and 5")
+var n=5
+while(n<=50){
+	if(n%3==0 && n%5==0){
+		console.log(n);
+	}
+	n=n+1
 
 }
