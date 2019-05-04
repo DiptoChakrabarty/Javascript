@@ -48,6 +48,7 @@ button{
 #message{
 	display: inline-block;
 	width:20%;
+	text-transform: uppercase;
 }
 button:hover{
 	color:white;
