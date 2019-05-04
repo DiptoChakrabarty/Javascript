@@ -1,4 +1,3 @@
-//var cols=["rgb(255, 0, 0)","rgb(255, 255, 0)","rgb(215, 0, 255)","rgb(255, 182, 145)","rgb(154, 147, 210)","rgb(255, 0, 0)","rgb(255, 0, 0)","rgb(255, 0, 0)"]
 var cols=GenerateRandomColors(6);
 var sq=document.querySelectorAll(".square1");
 var heading=document.querySelector("h1");
@@ -8,7 +7,14 @@ var pickcolor=document.querySelector("#col");
 var resetbutton=document.querySelector('#reset');
 var easybutton=document.querySelector('#easy');
 var hardbutton=document.querySelector('#hard');
+var game=document.querySelector('#new_game');
+var add=document.querySelector('#add');
 var numsq=6;
+var marks=0;
+var count=0;
+var attempt_no=0;
+var display_points=document.querySelector('#points');
+var attempt=document.querySelector('#attempt');
 pickcolor.textContent=colordisplay;
 for(var i=0;i<sq.length;i++)
 {
@@ -22,11 +28,17 @@ changeColor(clickcolor);
 heading.style.background=clickcolor;
 messagedisplay.textContent="Correct";
 resetbutton.textContent="Play Again";
+ marks=marks+(numsq-count)*10;
+ display_points.textContent= marks;
+ add.textContent= (numsq-count)*10;
+ attempt_no=attempt_no+1;
+ attempt.textContent=attempt_no;
 }
 else{
-	
+	count=count+1;
 	this.style.background ='#000';
 	messagedisplay.textContent="Try Again";
+	add.textContent= 0;
 }	
 });
 
@@ -66,6 +78,7 @@ function randomColor()
 resetbutton.addEventListener("click",function(){
 	
 	//Genrate Random colrs
+	count=0;
 cols=GenerateRandomColors(numsq);
 //choose a random color
 colordisplay = pickaColor();
@@ -75,10 +88,12 @@ for(var i=0;i<sq.length;i++)
 {//displaying the square colors
 sq[i].style.background=cols[i];
 messagedisplay.textContent=" ";
+add.textContent= 0;
 }
 });
 easybutton.addEventListener("click",function(){
 	numsq=3;
+	count=0;
 			easybutton.classList.add("selected");
 			hardbutton.classList.remove("selected");
 			cols=GenerateRandomColors(numsq);
@@ -98,6 +113,7 @@ easybutton.addEventListener("click",function(){
 });
 hardbutton.addEventListener("click",function(){
 	numsq=6;
+	count=0;
 			hardbutton.classList.add("selected");
 			easybutton.classList.remove("selected");
 			cols=GenerateRandomColors(numsq);
@@ -109,3 +125,23 @@ hardbutton.addEventListener("click",function(){
 					sq[i].style.display="block";
 			}
 });
+game.addEventListener("click",function(){
+count=0;
+marks=0;
+cols=GenerateRandomColors(numsq);
+//choose a random color
+colordisplay = pickaColor();
+//change the text to random color
+pickcolor.textContent=colordisplay;
+for(var i=0;i<sq.length;i++)
+{//displaying the square colors
+sq[i].style.background=cols[i];
+messagedisplay.textContent=" ";
+add.textContent= 0;
+attempt.textContent=0;
+attempt_no=0;
+}
+
+display_points.textContent= marks;
+});
+display_points.textContent= marks;
